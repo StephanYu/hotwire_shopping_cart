@@ -1,0 +1,21 @@
+<%= turbo_frame_tag @cart do %>
+  <details class="relative">
+    <summary>
+      <%= pluralize(@cart.line_items.count, "item") %>:
+      <%= number_to_currency(@cart.total_price) %>
+    </summary>
+    <div class="absolute w-96 p-2 right-0 bg-white shadow-lg rounded-b-lg">
+      <div class="divide-y divide-gray-100">
+        <%= render @cart.line_items %>
+      </div>
+      <div class="flex justify-between font-black border-t-2 border-gray-500 p-2">
+        <span>
+          Sub Total:
+        </span>
+        <span>
+          <%= number_to_currency(@cart.total_price) %>
+        </span>
+      </div>
+    </div>
+  </details>
+<% end %>

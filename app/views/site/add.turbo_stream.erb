@@ -1,0 +1,2 @@
+<%= turbo_stream.update('counter', pluralize(@counter, 'apple')) %>
+<%= turbo_stream.append('logs', partial: 'count', locals: { operation: :add }) %>
